@@ -1,13 +1,20 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
+
+
+
+
+
 @Component({
   selector: 'app-add-edit-dept',
   templateUrl: './add-edit-dept.component.html',
   styleUrls: ['./add-edit-dept.component.css']
 })
 export class AddEditDeptComponent implements OnInit {
+  
 
   constructor(private service:SharedService){ }
+  
 
   @Input() dept:any;
   DepartmentId: string | undefined;
@@ -26,17 +33,28 @@ export class AddEditDeptComponent implements OnInit {
   updateDepartment(){
     var val ={DepartmentId:this.DepartmentId,
               DepartmentName:this.DepartmentName};
-      this.service.updateDepartment(val).subscribe(res=>{
-        alert(res.toString());
+      this.service.updateDepartment(val).subscribe((response: any) => {
+        if (response && response.Message) {
+          alert(response.Message)
+        }
       });
-  }
+    }
 
-  addDepartment(){
-    var val ={DepartmentId:this.DepartmentId,
-              DepartmentName:this.DepartmentName};
-    this.service.addDepartment(val).subscribe(res=>{
-      alert(res.toString());
-  });  
+  addDepartment() {
+    var val = {
+      DepartmentId: this.DepartmentId,
+      DepartmentName: this.DepartmentName
+    };
+  
+    this.service.addDepartment(val).subscribe(
+      (response: any) => {
+        if (response && response.Message) {
+          alert(response.Message)
+          location.reload();
+        } 
+      }
+    );
   }
+  
+ }
 
-}

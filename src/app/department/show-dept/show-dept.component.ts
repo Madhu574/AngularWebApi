@@ -37,7 +37,7 @@ export class ShowDeptComponent implements OnInit{
 
   deleteClick(item: any){
     if(confirm("Are you sure??")){
-      this.service.deleteDepartment(item.DepartmentId).subscribe(data=>{
+      this.service.deleteDepartment(item.DepartmentId).subscribe((data: { toString: () => any; })=>{
         alert(data.toString());
         this.refreshAllDepartments();
       });
@@ -50,7 +50,7 @@ export class ShowDeptComponent implements OnInit{
   }
 
   refreshAllDepartments(){
-    this.service.getAllDepartments().subscribe(data=>{
+    this.service.getDepartment().subscribe((data: any)=>{
       this.AllDepartments=data;
     });
   }

@@ -1,0 +1,215 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing:border-box ;
+    font-family: 'Poppins',Sans-serif;
+    text-decoration: none;
+  
+  }
+  
+  /* header */
+  nav{
+    background-color: rgb(9, 110, 211);
+    width:100%;
+    height:80px;
+    position:fixed;
+  }
+  
+   /* button  */
+  .cv{
+  border-radius:25px;
+  background-color:rgba(6, 6, 32, 0.792);
+  color:white;
+  height:3em;
+  width:7em;
+  text-align: center;
+  padding:5px;
+  margin:8px;
+  cursor: pointer;
+  /* text-decoration: none; */
+  }
+  .cv:hover{
+    color:blue;
+    background-color:white;
+    /* text-decoration: none; */
+  }
+  .logo{
+    margin:25px;
+  }
+  nav ul{
+    float:right;
+    margin-right: 20px;
+  }
+   nav ul li{
+    display:inline-block;
+    line-height: 40px;
+    margin:0 5px;
+  } 
+  .img{
+    background-color: rgb(54, 135, 215);
+    width:100%;
+  }
+  .content-items{
+  text-align: center;
+  }
+  
+  .top-right{
+  position: absolute;
+    top: 150px;
+    right: 350px;
+    color:white
+  }
+  .top-right span{
+    color:#1d0d38;
+  }
+  .section{
+    background-color:white;
+  }
+  
+  .display{
+    display: block;
+    width: 100%;
+  }
+  .head{
+    text-align: center;
+    margin:40px;
+  }
+  
+  /*div boxes*/
+  .logo1{
+    text-align: center;
+    background-color: #FFF9c4;
+    width:500px;
+    height:500px;
+    border-radius: 15px;
+    margin:15px;
+  }
+  .logo2{
+    text-align: center;
+    background-color: #79b8e8;
+    width:500px;
+    height:500px;
+    border-radius: 15px;
+    margin:15px;
+  }
+  .logo3{
+    text-align: center;
+    background-color:#f3e5f5;
+    width:500px;
+    height:500px;
+    border-radius: 15px;
+    margin:15px;
+  }
+  .logo4{
+    text-align: center;
+    background-color: #ffccbc;
+    width:340px;
+    height:500px;
+    border-radius: 15px;
+    margin:15px;
+  }
+  .logo5{
+    text-align: center;
+    background-color:#ddfa9dcc;
+    width:340px;
+    height:500px;
+    border-radius: 15px;
+    margin:15px;
+  }
+  
+  
+  /*hover*/
+  .logo1:hover{
+      color: white;
+      background-color:#FDD835;
+  }
+  .logo2:hover{
+      color:white;
+      background-color: #91dee7;
+  }
+  .logo3:hover{
+      background-color:#b681bf;
+      color: white;
+  }
+  .logo4:hover{
+     color:white;
+     background-color:#a8b3f4ec ;
+    
+  }
+  .logo5:hover{
+  color:white;
+  background-color:#ff7043;
+  }
+  
+  
+  /*footer style*/
+  .footer{
+    background-color:#1d0d38 ;
+  }
+  .footer-content h1{
+  color: white;
+  }
+  .footer-content p{
+    color:rgb(9, 110, 211);
+  }
+  .box3 h6{
+    color:white;
+  }
+  .box2 h6{
+      color:rgb(9, 110, 211);
+  }
+  .box2 .jk{
+    color: white;
+  }
+  .copy h6{
+    color:gray;
+    text-align: center;
+  }
+  .copy h6 span{
+    color: whitesmoke;
+  }
+  .footer{
+    display:flex;
+    
+  }
+  .footer-content{
+    flex: right;
+    width:50%;
+    padding:40px;
+  }
+  .box2{
+    flex:right;
+    width:25%;
+    padding:40px;
+  }
+  .box3{
+    flex:right;
+    width:25%;
+    padding:40px;
+  }
+  .footer ul li{
+  text-decoration: none;
+   list-style: none;
+  }
+  .copy{
+    background-color: #1d0d38;
+  }
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .content {
+    height: 100%;
+  }
+  
+  
+  
+  
+  
+  
+  
+   
+  
+  
