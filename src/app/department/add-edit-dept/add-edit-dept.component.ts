@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
-
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 
@@ -12,7 +12,10 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class AddEditDeptComponent implements OnInit {
   
-
+  departmentName = new FormControl('', [
+    Validators.required,
+    Validators.pattern('^[a-zA-Z]+$')
+  ]);
   constructor(private service:SharedService){ }
   
 
@@ -39,7 +42,7 @@ export class AddEditDeptComponent implements OnInit {
         }
       });
     }
-
+    
   addDepartment() {
     var val = {
       DepartmentId: this.DepartmentId,
@@ -55,6 +58,6 @@ export class AddEditDeptComponent implements OnInit {
       }
     );
   }
-  
- }
+
+} 
 

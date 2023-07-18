@@ -1,3 +1,48 @@
 /* .form-group{
 background-color: rgb(18, 162, 114);
-} */
+} */.style{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    
+}
+
+  /* Tooltip styling */
+
+
+  input:invalid:hover {
+    /* Additional styling for the tooltip */
+    position: relative;
+  }
+
+  input:invalid:hover::after {
+    /* Styling the tooltip content */
+    content: attr(title);
+    background-color: red;
+    color: white;
+    padding: 4px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+  }
+/* .error-message {
+
+  color: red;
+    
+  font-size: 17px;
+    
+  margin-top: 5px;
+    
+ } */
+
+input.ng-touched.ng-invalid {
+
+   border: 1px solid red;
+      
+}
+
+
+.error-message {
+  color: red;
+}

@@ -9,6 +9,7 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./show-emp.component.css']
 })
 export class ShowEmpComponent implements OnInit{
+  AllDesignation: any[] | undefined;
   constructor(private service:SharedService) {}
 
 
@@ -46,8 +47,8 @@ export class ShowEmpComponent implements OnInit{
       State:"",
       Country:"",
       Pincode:"",
-      DepartmentId:"",
-      IsActive:""
+      DepartmentName:"",
+      IsActive:0
     }
     this.ModalTitle="Add Employee";
     this.ActivateAddEditEmpComp=true;
@@ -61,9 +62,12 @@ export class ShowEmpComponent implements OnInit{
 
   deleteClick(item: any){
     if(confirm("Are you sure??")){
-      this.service.deleteEmployee(item.EmployeeId).subscribe(data=>{
-        alert(data.toString());
+      this.service.deleteEmployee(item.EmployeeId).subscribe((response: any) => {
+        if (response && response.Message) {
+          alert(response.Message)
+        }
         this.refreshEmployees();
+      
       });
     }
   }
@@ -78,4 +82,5 @@ export class ShowEmpComponent implements OnInit{
       this.AllEmployees=data;
     });
   }
-}
+  }
+
