@@ -13,18 +13,20 @@ import { SharedService } from './shared.service';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { SidenavComponent } from './sidenav/sidenav.component'; 
+
 import { MatIconModule } from '@angular/material/icon'; // Import MatIconModule
 import { MatDividerModule } from '@angular/material/divider'; // Import MatDividerModule
 import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DashboardComponent } from './dashboard/dashboard.component'; 
+; 
 import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { MatMenuModule } from '@angular/material/menu';
-import { HeaderComponent } from './header/header.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
+
 
 
 @NgModule({
@@ -36,10 +38,8 @@ import { HeaderComponent } from './header/header.component';
     EmployeeComponent,
     ShowEmpComponent,
     AddEditEmpComponent,
-    HomeComponent,
-    SidenavComponent,
-    DashboardComponent,
-    HeaderComponent
+    HomeComponent
+  
   ],
   imports: [
     BrowserModule,
@@ -48,13 +48,15 @@ import { HeaderComponent } from './header/header.component';
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-    MatIconModule, // Add MatIconModule to the imports array
-    MatDividerModule, // Add MatDividerModule to the imports array
+    MatIconModule,
+    MatDividerModule, 
     MatListModule, 
     BrowserAnimationsModule,
     MatSidenavModule,
     MatMenuModule,
-    MatToolbarModule
+    MatToolbarModule,
+    Ng2SearchPipeModule
+
 
   ],
   providers: [SharedService],

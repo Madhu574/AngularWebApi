@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
-
+import { EmployeeComponent } from '../employee.component';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -9,12 +10,20 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./show-emp.component.css']
 })
 export class ShowEmpComponent implements OnInit{
-  AllDesignation: any[] | undefined;
-  constructor(private service:SharedService) {}
+  searchText: string = '';
+  recentSearches: any;
+
+  AllEmployees: any[] = [];
+   p:number =1;
+   itemsPerPage:number = 5;
+   totalEmployees: any;
+
+  constructor(private service:SharedService, private router:ActivatedRoute) {
 
 
+ }
 
-  AllEmployees:any;
+ ActivateStudentEditComponent:boolean | undefined
   ModalTitle: string | undefined;
   ActivateAddEditEmpComp:boolean=false;
   emp:any;
@@ -25,10 +34,15 @@ export class ShowEmpComponent implements OnInit{
     
       this.service.getEmployees().subscribe(data=>{
         this.AllEmployees=data;
+        this.refreshEmployees();
       });
     
     
     }
+   
+
+
+
   refreshAllEmployees() {
     throw new Error('Method not implemented.');
   }
@@ -48,7 +62,7 @@ export class ShowEmpComponent implements OnInit{
       Country:"",
       Pincode:"",
       DepartmentName:"",
-      IsActive:0
+      IsActive:""
     }
     this.ModalTitle="Add Employee";
     this.ActivateAddEditEmpComp=true;
@@ -77,9 +91,12 @@ export class ShowEmpComponent implements OnInit{
     this.refreshEmployees();
   }
 
+
+  
   refreshEmployees(){
     this.service.getEmployees().subscribe(data=>{
       this.AllEmployees=data;
+      this.totalEmployees = data.length;
     });
   }
   }

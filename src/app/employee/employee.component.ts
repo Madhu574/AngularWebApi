@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent {
+  static FirstName: any;
+  static Name: any;
 
 }

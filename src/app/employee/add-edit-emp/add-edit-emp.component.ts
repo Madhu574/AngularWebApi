@@ -5,6 +5,9 @@ import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
+
+
+
 interface CountryName {
   country: CountryName;
 }
@@ -15,10 +18,13 @@ interface CountryName {
   styleUrls: ['./add-edit-emp.component.css']
 })
 export class AddEditEmpComponent implements OnInit {
-  employeeForm: FormGroup | undefined;
+
+
+
   countries: CountryName[] = [];
   selectedCountry: string | undefined;
   filteredCountries: CountryName[] = [];
+
   
 
   AllDepartments: any[] = [];
@@ -26,7 +32,8 @@ export class AddEditEmpComponent implements OnInit {
   @Input() emp: any;
   EmployeeId: string | undefined;
   EmployeeName: string | undefined;
-  FirstName: string | undefined;
+
+  FirstName: string = '';
   LastName: string | undefined;
   DesignationName: string[] = [];
   DateOfJoining: string | undefined;
@@ -35,51 +42,36 @@ export class AddEditEmpComponent implements OnInit {
   EmployeeAddress: string | undefined;
   State: string | undefined;
   Pincode: string | undefined;
-  IsActive: string | undefined;
+  IsActive: boolean | undefined;
   selectedOption: any;
   Designation: any;
   Country: any;
   DepartmentName: any;
-  //selectedState: string | undefined;
 
-
-
-
-  GenderOptions = ['Male', 'Female', 'Other'];
+  GenderOptions = ['Male', 'Female'];
   filteredDepartments: string[] | undefined;
   selectedDepartment: string | undefined;
 
-
-
-
-  constructor(private service: SharedService, private http: HttpClient,private formBuilder: FormBuilder) { }
+  
+  constructor(private service: SharedService, private http: HttpClient, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+
+
+  
+
     this.loadAllEmployees();
     this.loadEmployeeDetails();
     this.getDropdownOptions();
     this.getDropdownOptions1();
     this.fetchCountries();
-    this.initEmployeeForm();
+  
     //this.loadDesignations();
   }
-  private initEmployeeForm() {
-    this.employeeForm = this.formBuilder.group({
-      FirstName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
-      LastName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
-      Designation: ['', Validators.required],
-      DateOfJoining: ['', Validators.required],
-      ReportingManagerEmployeeId: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
-      Gender: ['', Validators.required],
-      EmployeeAddress: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
-      selectedCountry: ['', Validators.required],
-      State: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
-      Pincode: ['', [Validators.required, Validators.pattern('[0-9]{6}')]],
-      selectedDepartment: ['', Validators.required],
-      IsActive: ['', [Validators.required, Validators.pattern('[01]')]],
-    });
+  initForm() {
+    throw new Error('Method not implemented.');
   }
-
+ 
   getDropdownOptions1() {
     this.service.getDesignations().subscribe(
 
@@ -122,7 +114,6 @@ export class AddEditEmpComponent implements OnInit {
   }
 
   onOptionChange() {
-       // Call your backend API or perform any desired action with the selected value
      console.log('Selected option:', this.selectedDepartment);
      }
 
@@ -161,31 +152,14 @@ export class AddEditEmpComponent implements OnInit {
   }
 
 
-  // updateSelectedState(): void {
-  //   const selectedCountryObject = this.Country.find((country: any) => country.name === this.selectedCountry);
-  //   if (selectedCountryObject && selectedCountryObject.states) {
-  //     const statesForSelectedCountry: string[] = selectedCountryObject.states.map((state: any) => state.name);
-  //     if (statesForSelectedCountry.length > 0) {
-  //       this.selectedState = statesForSelectedCountry[0]; // Set the initial selected state
-  //     } else {
-  //       this.selectedState = undefined; // No states available for the selected country
-  //     }
-  //   } else {
-  //     this.selectedState = undefined; // Reset the selected state if the selected country is not found
-  //   }
-  // }
   
-  
-
-
-
   fetchCountries() {
    this.http.get<any[]>('https://restcountries.com/v2/all')
       .subscribe(
          (response) => {
            this.Country = response;
            
-           //this.updateSelectedState();
+          
          },
          (error) => {
            console.error('Error fetching countries:', error);
@@ -193,14 +167,12 @@ export class AddEditEmpComponent implements OnInit {
       );
    }
   
-  // onCountryChange(): void {
-  //   this.selectedState = undefined; // Reset the selected state when the country changes
-  // }
-
+ 
 
 
   
   addEmployee() {
+   
     const val = {
       EmployeeId: this.EmployeeId,
       EmployeeName: this.EmployeeName,
@@ -260,3 +232,7 @@ export class AddEditEmpComponent implements OnInit {
     });
   }
 }
+function initForm() {
+  throw new Error('Function not implemented.');
+}
+

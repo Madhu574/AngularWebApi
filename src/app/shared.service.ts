@@ -87,6 +87,8 @@ export class SharedService {
   EmpdltUrl = "http://localhost:5840/api/Employee/DeleteEmployee";
 
   DesUrl = "http://localhost:5840/api/Designation/GetDesignations";
+  getAllDepartments: any;
+  getDepartments: any;
 
 
 

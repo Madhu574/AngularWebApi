@@ -1,23 +1,23 @@
 :host {
 
-    display: flex;
+  display: flex;
 
-    flex-direction: column;
+  flex-direction: column;
 
-    height: 100%;
+  height: 100%;
 
-  }
-  mat-drawer {
+}
+mat-drawer {
 
-    width: 260px;
-  }
-  mat-drawer-container {
+  width: 260px;
+}
+mat-drawer-container {
 
-    height: 100%;
+  height: 100%;
 
-  }
-  mat-drawer {
+}
+mat-drawer {
 
-    background: #5c6f9a;
+  background: #5c6f9a;
 
-  }
+}

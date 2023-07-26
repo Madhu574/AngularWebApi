@@ -14,6 +14,9 @@ export class ShowDeptComponent implements OnInit{
   ActivateAddEditDeptComp:boolean=false;
   dept:any;
   dataItem:any;
+  p:number =1;
+   itemsPerPage:number = 6;
+   totalDepartments: any;
 
 
   ngOnInit(): void {

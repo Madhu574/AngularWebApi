@@ -1,27 +1,27 @@
-<!-- <div class="d-flex flex-row bd-highlight mb-2">
+<div class="d-flex flex-row bd-highlight mb-2">
     <div class="form-group row" style="width: 60%;">
 
         <label class="col-sm-4 col-form-label">EmployeeId</label>
         <div class="col-sm-8">
-            <input type="text" class="form-control" [(ngModel)]="EmployeeId"
-                placeholder="Enter Employee Id" pattern="[0-9]{1,3}" required>
+            <input type="text" class="form-control" [(ngModel)]="EmployeeId" placeholder="Enter Employee Id">
         </div>
 
-      
-         <label class="col-sm-4 col-form-label">FirstName</label>
+
+        <label class="col-sm-4 col-form-label">FirstName</label>
         <div class="col-sm-8">
             <input type="text" class="form-control" [(ngModel)]="FirstName" placeholder="Enter First Name"
-                pattern="[a-zA-Z]{1,45}" required>
+            >
+           
         </div>
         
-      
+
+       
 
         <br>
 
         <label class="col-sm-4 col-form-label">LastName</label>
         <div class="col-sm-8">
-            <input type="text" class="form-control" [(ngModel)]="LastName" placeholder="Enter Last Name"
-                pattern="[a-zA-Z]{1,45}" required>
+            <input type="text" class="form-control" [(ngModel)]="LastName" placeholder="Enter Last Name">
         </div>
 
         <br>
@@ -29,9 +29,9 @@
         <label class="col-sm-4 col-form-label">Designation</label>
 
         <div class="col-sm-8">
-        
-            <select class ="form-control" [(ngModel)]="selectedOption" (change)="onOptionChange1()">
-           
+
+            <select class="form-control" [(ngModel)]="selectedOption" (change)="onOptionChange1()">
+
                 <option *ngFor="let dn of DesignationName" [value]="dn">
                     {{ dn }}
                 </option>
@@ -43,145 +43,17 @@
         <label class="col-sm-4 col-form-label">DateofJoining</label>
         <div class="col-sm-8">
             <input type="date" class="form-control" [(ngModel)]="DateOfJoining" placeholder="Enter Date of Joining"
-                required>
+                >
         </div>
         <br>
 
         <label class="col-sm-4 col-form-label">ReportingManagerEmployeeId</label>
         <div class="col-sm-8">
             <input type="text" class="form-control" [(ngModel)]="ReportingManagerEmployeeId"
-                placeholder="Enter Manager Id" pattern="[0-9]{1,3}" required>
+                placeholder="Enter Manager Id">
         </div>
         <br>
 
-        <label class="col-sm-4 col-form-label">Gender</label>
-        <div class="col-sm-8">
-          <div *ngFor="let option of GenderOptions">
-            <label>
-              <input type="radio" name="GenderOptions" [(ngModel)]= "Gender" [value]="option">
-              {{ option }}
-            </label>
-          </div>
-        </div>
-
-
-        <label class="col-sm-4 col-form-label">EmployeeAddress</label>
-        <div class="col-sm-8">
-            <textarea class="form-control" [(ngModel)]="EmployeeAddress" placeholder="Enter Address"
-                pattern="[a-zA-Z]{1,150}" required></textarea>
-        </div>
-
-        <br>
-
-        <label class="col-sm-4 col-form-label">Country</label>
-        <div class="col-sm-8">
-          <select class="form-control" [(ngModel)]="selectedCountry" required>
-           
-            <option *ngFor="let country of Country" [value]="country.name">{{ country.name }}</option>
-          </select>
-        </div>
-                <br>
-
-        <label class="col-sm-4 col-form-label">State</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" [(ngModel)]="State" placeholder="Enter State"
-                pattern="[a-zA-Z]{1,50}" required>
-        </div>
-        <br>
-
-        <label class="col-sm-4 col-form-label">Pincode</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" [(ngModel)]="Pincode" placeholder="Enter Pincode" pattern="[0-9]{5}"
-                required>
-        </div>
-
-        <br>
-
-        <label class="col-sm-2 col-form-label">Department Name</label>
-<select class="form-control" [(ngModel)]="selectedDepartment" (change)="onOptionChange()">
-  <option *ngFor="let option of DepartmentName" [value]="option">{{ option }}</option>
-</select>
-
-
-    
-
-
-
-
-
-
-
-        <label class="col-sm-4 col-form-label">IsActive</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" [(ngModel)]="IsActive" placeholder="Enter 1 for Active, 0 for Inactive"
-                pattern="[0-1]{1}" required>
-        </div>
-
-        <br>
-    </div>
-</div>
-
-<button (click)="addEmployee()" *ngIf="emp.EmployeeId==0" class="btn btn-primary">
-    Add
-</button>
-
-<button (click)="updateEmployee()" *ngIf="emp.EmployeeId!=0" class="btn btn-primary">
-    Update
-</button> -->
-
-
-
-
-
-
-
-
-
-<!-- Existing code (Table with sorting and pagination) -->
-
-<!-- Form for filtering and adding new data -->
-<div class="d-flex flex-row bd-highlight mb-2">
-    <div class="form-group row" style="width: 60%;">
-
-        <!-- EmployeeId -->
-        <label class="col-sm-4 col-form-label">EmployeeId</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" [(ngModel)]="EmployeeId" placeholder="Enter Employee Id">
-        </div>
-
-        <!-- FirstName -->
-        <label class="col-sm-4 col-form-label">FirstName</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" [(ngModel)]="FirstName" placeholder="Enter First Name">
-        </div>
-
-        <!-- LastName -->
-        <label class="col-sm-4 col-form-label">LastName</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" [(ngModel)]="LastName" placeholder="Enter Last Name">
-        </div>
-
-        <!-- Designation -->
-        <label class="col-sm-4 col-form-label">Designation</label>
-        <div class="col-sm-8">
-            <select class="form-control" [(ngModel)]="selectedOption" (change)="onOptionChange1()">
-                <option *ngFor="let dn of DesignationName" [value]="dn">{{ dn }}</option>
-            </select>
-        </div>
-
-        <!-- DateofJoining -->
-        <label class="col-sm-4 col-form-label">DateofJoining</label>
-        <div class="col-sm-8">
-            <input type="date" class="form-control" [(ngModel)]="DateOfJoining" placeholder="Enter Date of Joining">
-        </div>
-
-        <!-- ReportingManagerEmployeeId -->
-        <label class="col-sm-4 col-form-label">ReportingManagerEmployeeId</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" [(ngModel)]="ReportingManagerEmployeeId" placeholder="Enter Manager Id">
-        </div>
-
-        <!-- Gender -->
         <label class="col-sm-4 col-form-label">Gender</label>
         <div class="col-sm-8">
             <div *ngFor="let option of GenderOptions">
@@ -192,44 +64,54 @@
             </div>
         </div>
 
-        <!-- EmployeeAddress -->
+
         <label class="col-sm-4 col-form-label">EmployeeAddress</label>
         <div class="col-sm-8">
             <textarea class="form-control" [(ngModel)]="EmployeeAddress" placeholder="Enter Address"></textarea>
         </div>
 
-        <!-- Country -->
+        <br>
+
         <label class="col-sm-4 col-form-label">Country</label>
         <div class="col-sm-8">
-            <select class="form-control" [(ngModel)]="selectedCountry">
+            <select class="form-control" [(ngModel)]="selectedCountry" required>
+
                 <option *ngFor="let country of Country" [value]="country.name">{{ country.name }}</option>
             </select>
         </div>
+        <br>
 
-        <!-- State -->
+      
+
         <label class="col-sm-4 col-form-label">State</label>
         <div class="col-sm-8">
             <input type="text" class="form-control" [(ngModel)]="State" placeholder="Enter State">
         </div>
+        <br>
 
-        <!-- Pincode -->
         <label class="col-sm-4 col-form-label">Pincode</label>
         <div class="col-sm-8">
             <input type="text" class="form-control" [(ngModel)]="Pincode" placeholder="Enter Pincode">
         </div>
 
-        <!-- Department Name -->
-        <label class="col-sm-2 col-form-label">Department Name</label>
+        <br>
+           
+        <label class="col-sm-4 col-form-label">Department Name</label>
+        <div class="col-sm-8">
         <select class="form-control" [(ngModel)]="selectedDepartment" (change)="onOptionChange()">
             <option *ngFor="let option of DepartmentName" [value]="option">{{ option }}</option>
         </select>
+    </div>
 
-        <!-- IsActive -->
+
+
         <label class="col-sm-4 col-form-label">IsActive</label>
         <div class="col-sm-8">
-            <input type="text" class="form-control" [(ngModel)]="IsActive" placeholder="Enter 1 for Active, 0 for Inactive">
+            <input type="text" class="form-control" [(ngModel)]="IsActive"
+                placeholder="Enter true for Active, false for Inactive">
         </div>
 
+        <br>
     </div>
 </div>
 
@@ -240,3 +122,7 @@
 <button (click)="updateEmployee()" *ngIf="emp.EmployeeId!=0" class="btn btn-primary">
     Update
 </button>
+
+
+
+

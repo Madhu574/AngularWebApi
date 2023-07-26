@@ -7,7 +7,23 @@
   Add Employee
 </button>
 
-<!-- Modal -->
+<div class="container">
+  <div class="row">
+    <label for="search" class="search-label">Search Bar:</label>
+    <div class="search">
+
+      <input type="text" name="search" [(ngModel)]="searchText" placeholder="">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
     <div class="modal-content">
@@ -49,11 +65,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let dataItem of AllEmployees">
-         
+    <tr *ngFor="let dataItem of AllEmployees | filter:searchText | paginate: { itemsPerPage: itemsPerPage, currentPage: p }"> 
       <td>{{dataItem.EmployeeId}}</td>
       <td>{{dataItem.FirstName}} {{dataItem.LastName}}</td>
-      <td>{{dataItem.DesignationName}}</td>
+      <td>{{dataItem.Designation}}</td>
       <td>{{dataItem.DateOfJoining}}</td>
       <td>{{dataItem.ReportingManagerEmployeeId}}</td>
       <td>{{dataItem.Gender}}</td>
@@ -63,7 +78,7 @@
       <td>{{dataItem.Pincode}}</td>
       <td>{{dataItem.DepartmentName}}</td>
       <td>{{dataItem.IsActive}}</td>
-      <td>
+    
         <div class="d-flex">
           <button type="button" class="btn btn-light mr-1"
             data-bs-toggle="modal" data-bs-target="#exampleModal"
@@ -83,7 +98,17 @@
             </svg>
           </button>
         </div>
-            </td>
+       
         </tr>
     </tbody>
 </table>
+
+
+<div class="container">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+    <!-- Your grid items here -->
+  </div>
+  <div class="mt-8 py-5 pagination-container">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>
